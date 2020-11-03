@@ -1,0 +1,68 @@
+version: "3.8"
+services:
+        master:
+                build:
+                        context:  /home/max/ansible_lab/master
+                networks:
+                        ans-env:
+                                ipv4_address: "172.16.0.2"        
+                hostname: "master.ansible-lab.com"
+                extra_hosts:
+                        - "worker1.ansible-lab.com:172.16.0.11"
+                        - "worker2.ansible-lab.com:172.16.0.12"
+                        - "worker3.ansible-lab.com:172.16.0.13"
+                        - "worker4.ansible-lab.com:172.16.0.14"
+                        - "worker5.ansible-lab.com:172.16.0.15"
+                stdin_open: true 
+                tty: true 
+        worker1:
+                build: 
+                        context: /home/max/ansible_lab/workers
+                networks:
+                        ans-env:
+                                ipv4_address: "172.16.0.11"
+                hostname: "worker1.ansible-lab.com"
+                stdin_open: true
+                tty: true
+        worker2:
+                build:
+                        context: /home/max/ansible_lab/workers
+                networks: 
+                        ans-env:
+                                ipv4_address: "172.16.0.12"
+                hostname: "worker2.ansible-lab.com"
+                stdin_open: true
+                tty: true
+        worker3:
+                build:
+                        context: /home/max/ansible_lab/workers
+                networks:
+                        ans-env:
+                                ipv4_address: "172.16.0.13"
+                hostname: "worker3.ansible-lab.com"
+                stdin_open: true
+                tty: true
+        worker4:
+                build:
+                        context: /home/max/ansible_lab/workers
+                networks:
+                        ans-env:
+                                ipv4_address: "172.16.0.14"
+                hostname: "worker4.ansible-lab.com"
+                stdin_open: true
+                tty: true
+        worker5:
+                build:
+                        context: /home/max/ansible_lab/workers
+                networks:
+                        ans-env:
+                                ipv4_address: "172.16.0.15"
+                hostname: "worker5.ansible-lab.com"
+                stdin_open: true
+                tty: true
+networks:
+        ans-env:
+                ipam:
+                        driver: "default"
+                        config:
+                                - subnet: "172.16.0.0/24"
