@@ -2,7 +2,7 @@ version: "3.8"
 services:
         master:
                 build:
-                        context:  /home/max/ansible_lab/master
+                        context:  ../master
                 networks:
                         ans-env:
                                 ipv4_address: "172.16.0.2"        
@@ -17,7 +17,7 @@ services:
                 tty: true 
         worker1:
                 build: 
-                        context: /home/max/ansible_lab/workers
+                        context: ../workers
                 networks:
                         ans-env:
                                 ipv4_address: "172.16.0.11"
@@ -26,7 +26,7 @@ services:
                 tty: true
         worker2:
                 build:
-                        context: /home/max/ansible_lab/workers
+                        context: ../workers
                 networks: 
                         ans-env:
                                 ipv4_address: "172.16.0.12"
@@ -35,7 +35,7 @@ services:
                 tty: true
         worker3:
                 build:
-                        context: /home/max/ansible_lab/workers
+                        context: ../workers
                 networks:
                         ans-env:
                                 ipv4_address: "172.16.0.13"
@@ -44,7 +44,7 @@ services:
                 tty: true
         worker4:
                 build:
-                        context: /home/max/ansible_lab/workers
+                        context: ../workers
                 networks:
                         ans-env:
                                 ipv4_address: "172.16.0.14"
@@ -53,7 +53,7 @@ services:
                 tty: true
         worker5:
                 build:
-                        context: /home/max/ansible_lab/workers
+                        context: ../workers
                 networks:
                         ans-env:
                                 ipv4_address: "172.16.0.15"

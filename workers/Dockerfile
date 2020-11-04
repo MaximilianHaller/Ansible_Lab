@@ -5,6 +5,7 @@ RUN rm -f /var/run/nologin
 RUN yum install epel-release -y 
 RUN yum install openssh-server openssh-clients -y
 COPY ./sshkeys/ /etc/ssh/
+RUN chmod -R 400 /etc/ssh
 RUN mkdir /home/ansible/.ssh
 RUN mkdir /root/.ssh
 RUN cat /etc/ssh/id_rsa.pub >> /home/ansible/.ssh/authorized_keys
