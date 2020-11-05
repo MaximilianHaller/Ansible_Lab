@@ -5,6 +5,7 @@ RUN yum install openssh-server openssh-clients -y
 RUN yum install ansible -y
 COPY ./sshkeys/ /root/.ssh/
 RUN chmod 400 -R /root/.ssh
-#RUN sed -i 's/key_authorizationyes/key_authorizationno/g' /etc/ansible/ans.cfg
+RUN sed -i 's/#host_key_checking/host_key_checking/g' /etc/ansible/ansible.cfg
+RUN echo -e '[workers]\nworker1\nworker2\nworker3\nworker4\nworker5' >> /etc/ansible/hosts
 EXPOSE 22
 ENTRYPOINT /bin/bash
